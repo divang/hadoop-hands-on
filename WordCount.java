@@ -9,16 +9,14 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
 
 public class WordCount {
       
       public static void main(String [] args) throws Exception
       {
             Configuration c=new Configuration();
-            String[] files=new GenericOptionsParser(c,args).getRemainingArgs();
-            Path input=new Path(files[0]);
-            Path output=new Path(files[1]);
+            Path input=new Path(args[0]);
+            Path output=new Path(args[1]);
             Job j=new Job(c,"wordcount");
             j.setJarByClass(WordCount.class);
             j.setMapperClass(MapForWordCount.class);
