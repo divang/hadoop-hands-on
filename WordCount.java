@@ -31,7 +31,8 @@ public class WordCount {
       
       public static class MapForWordCount 
             extends Mapper<LongWritable, Text, Text, IntWritable>{
-            public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException
+            public void map(LongWritable key, Text value, Context con) 
+                  throws IOException, InterruptedException
             {
                   String line = value.toString();
                   String[] words=line.split(",");
@@ -47,7 +48,8 @@ public class WordCount {
       public static class ReduceForWordCount 
             extends Reducer<Text, IntWritable, Text, IntWritable>
       {
-            public void reduce(Text word, Iterable<IntWritable> values, Context con) throws IOException, InterruptedException
+            public void reduce(Text word, Iterable<IntWritable> values, Context con) 
+                  throws IOException, InterruptedException
             {
                      int sum = 0;
                      for(IntWritable value : values)
