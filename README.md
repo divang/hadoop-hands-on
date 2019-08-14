@@ -13,7 +13,7 @@
     - python,scala
 
 - Copy local words.txt to HDFS:
-  - hadoop dfs -copyFromLocal words.txt .
+  - hdfs dfs -copyFromLocal words.txt .
 
 
 - To submit wordcount in HDFS:
